@@ -918,8 +918,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7034e9765cf21c4b9fbd076ddabdba4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstaclePrefab: {fileID: 7308008370171060688, guid: 49dab3f4605c5224ab514d51abe01830,
-    type: 3}
+  obstaclePrefab:
+  - {fileID: 7308008370171060688, guid: 49dab3f4605c5224ab514d51abe01830, type: 3}
+  - {fileID: 1337105189813872618, guid: 8d6460e88a4d468498956798cd511458, type: 3}
+  - {fileID: 5803425917226855220, guid: b775d8c40e6678b42a706d46b7df3c77, type: 3}
+  - {fileID: 166419857177869958, guid: ab36220f635921848b25f6abf1be9000, type: 3}
+  - {fileID: 8274915708955257336, guid: ef851ad492e0074479af604b2e704b33, type: 3}
+  - {fileID: 8624215493516537611, guid: dca15db34b89c604ea15092248742f07, type: 3}
+  - {fileID: 1105825965402642493, guid: 02807febceb75574d98639ad83c8298b, type: 3}
 --- !u!4 &1992057975
 Transform:
   m_ObjectHideFlags: 0
@@ -984,7 +990,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 2ed7498c2e663174980cec6272db0dd0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
