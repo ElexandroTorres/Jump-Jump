@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 10;
     public float gravityModify = 2;
     public bool isOnGround = true;
+    public bool isDoubleJump = false;
     public bool gameOver = false;
 
     void Start()
@@ -29,10 +30,17 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && isOnGround && !gameOver)
+        if(Input.GetKeyDown(KeyCode.Space) && !gameOver && (isOnGround || !isDoubleJump))
         {
+            if(isOnGround)
+            {
+                isOnGround = false;
+            }
+            else if(!isDoubleJump)
+            {
+                isDoubleJump = true;
+            }
             playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            isOnGround = false;
             playerAnim.SetTrigger("Jump_trig");
             splatterParticle.Stop();
             playerAudio.PlayOneShot(jumpSound);
@@ -43,6 +51,7 @@ public class PlayerController : MonoBehaviour
         if(other.gameObject.CompareTag("Ground"))
         {
             isOnGround = true;
+            isDoubleJump = false;
             splatterParticle.Play();
         } else if(other.gameObject.CompareTag("Obstacle"))
         {
