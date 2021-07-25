@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class PlayerController : MonoBehaviour
     public AudioClip explosionSound;
     public AudioClip jumpSound;
 
-    public float jumpForce = 10;
+    public float jumpForce = 10.0f;
     public float gravityModify = 2;
     public bool isOnGround = true;
     public bool isDoubleJump = false;
@@ -35,16 +36,24 @@ public class PlayerController : MonoBehaviour
             if(isOnGround)
             {
                 isOnGround = false;
+                jumpForce = 10.0f;
             }
             else if(!isDoubleJump)
             {
                 isDoubleJump = true;
+                jumpForce = 10.0f;
             }
             playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             playerAnim.SetTrigger("Jump_trig");
             splatterParticle.Stop();
             playerAudio.PlayOneShot(jumpSound);
         }
+
+        if(Input.GetKeyDown(KeyCode.Escape) && gameOver)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
     }
 
     private void OnCollisionEnter(Collision other) {

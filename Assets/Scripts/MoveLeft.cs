@@ -26,5 +26,15 @@ public class MoveLeft : MonoBehaviour
                 Destroy(this.gameObject);
             }
         }
+
+        if(Input.GetKey(KeyCode.LeftControl) && !playerController.gameOver)
+        {
+            speed = 20.0f;
+        }
+        else if(Input.GetKeyUp(KeyCode.LeftControl) && !playerController.gameOver)
+        {
+            speed = 10.0f;
+        }
+
     }
 }
